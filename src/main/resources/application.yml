@@ -10,6 +10,8 @@ spring:
     url: jdbc:mysql://mysql.cqvbxvnhcvmw.ap-south-1.rds.amazonaws.com/springbootdb?allowPublicKeyRetrieval=true&useSSL=false
     username: admin
     password: purna21619
+    hikari: 
+        initailization-fail-timeout: 0
   jpa:
     hibernate:
       ddl-auto: update
