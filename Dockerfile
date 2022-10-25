@@ -1,6 +1,7 @@
 FROM ubuntu
-RUN sudo apt install -y maven
-RUN sudo apt install -y openjdk-11-jdk
+RUN apt install -y openjdk-11-jdk
+RUN apt install -y maven
+
 WORKDIR /java
 COPY . /java
 RUN mvn clean install
