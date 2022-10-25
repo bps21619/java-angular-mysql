@@ -1,4 +1,6 @@
 FROM ubuntu
+RUN apt update
+RUN apt upgrade
 RUN apt install -y openjdk-11-jdk
 RUN apt install -y maven
 
