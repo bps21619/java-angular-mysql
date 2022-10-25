@@ -1,4 +1,5 @@
 FROM openjdk:11
+RUN sudo apt install -y maven
 WORKDIR /java
 COPY . /java
 RUN mvn install
