@@ -1,5 +1,6 @@
-FROM maven:3.3-jdk-8
-
+FROM ubuntu
+RUN apt install -y maven
+RUN apt install -y openjdk-11-jdk
 WORKDIR /java
 COPY . /java
 RUN mvn clean install
