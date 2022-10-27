@@ -18,6 +18,10 @@ jobs:
   #  run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: docker push
       run: |
-         docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
-         docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/java_demo_gitactions
-         docker push ${{secrets.DOCKER_USER}}/java_demo_gitactions
+        # docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
+          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 972440106609.dkr.ecr.ap-south-1.amazonaws.com
+        # docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/java_demo_gitactions
+          docker build -t nodejsapplication .
+         # docker push ${{secrets.DOCKER_USER}}/java_demo_gitactions
+          docker tag nodejsapplication:latest 972440106609.dkr.ecr.ap-south-1.amazonaws.com/nodejsapplication:latest
+          docker push 972440106609.dkr.ecr.ap-south-1.amazonaws.com/nodejsapplication:latest
